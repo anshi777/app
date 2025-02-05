@@ -1,0 +1,108 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Maybelline SuperStay Matte Ink",
+        "description": "A long-lasting matte lipstick with intense pigmentation.",
+        "image": "https://example.com/images/maybelline-matte-ink.jpg",
+        "price": 11.99,
+        "discount": 10.5,
+        "shopName": "Beauty Store",
+        "ratings": 4.85
+      },
+      {
+        "id": 2,
+        "name": "L'Oreal Infallible Foundation",
+        "description": "A full-coverage foundation with a matte finish.",
+        "image": "https://example.com/images/loreal-foundation.jpg",
+        "price": 15.99,
+        "discount": 12.0,
+        "shopName": "Glam Hub",
+        "ratings": 4.75
+      },
+      {
+        "id": 3,
+        "name": "Huda Beauty Obsessions Palette",
+        "description": "A highly pigmented eyeshadow palette for stunning looks.",
+        "image": "https://example.com/images/huda-palette.jpg",
+        "price": 27.99,
+        "discount": 15.0,
+        "shopName": "Huda Beauty Official",
+        "ratings": 4.9
+      },
+      {
+        "id": 4,
+        "name": "Fenty Beauty Gloss Bomb",
+        "description": "A high-shine lip gloss with a non-sticky formula.",
+        "image": "https://example.com/images/fenty-gloss.jpg",
+        "price": 19.99,
+        "discount": 8.0,
+        "shopName": "Fenty Beauty Store",
+        "ratings": 4.9
+      },
+      {
+        "id": 5,
+        "name": "Too Faced Better Than Sex Mascara",
+        "description": "A volumizing mascara that creates dramatic lashes.",
+        "image": "https://example.com/images/better-than-sex.jpg",
+        "price": 26.99,
+        "discount": 8.5,
+        "shopName": "Too Faced Store",
+        "ratings": 4.88
+      },
+      {
+        "id": 6,
+        "name": "MAC Studio Fix Powder",
+        "description": "A powder foundation that provides full coverage and a flawless finish.",
+        "image": "https://example.com/images/mac-powder.jpg",
+        "price": 30.99,
+        "discount": 9.5,
+        "shopName": "MAC Cosmetics",
+        "ratings": 4.8
+      },
+      {
+        "id": 7,
+        "name": "Urban Decay All Nighter Spray",
+        "description": "A long-lasting setting spray for a flawless makeup finish.",
+        "image": "https://example.com/images/urban-decay-spray.jpg",
+        "price": 32.99,
+        "discount": 6.0,
+        "shopName": "Urban Decay",
+        "ratings": 4.9
+      },
+      {
+        "id": 8,
+        "name": "Anastasia Dipbrow Pomade",
+        "description": "A waterproof eyebrow pomade for perfectly defined brows.",
+        "image": "https://example.com/images/dipbrow-pomade.jpg",
+        "price": 22.99,
+        "discount": 10.0,
+        "shopName": "Anastasia Beverly Hills",
+        "ratings": 4.85
+      },
+      {
+        "id": 9,
+        "name": "Tarte Shape Tape Concealer",
+        "description": "A full-coverage concealer that brightens and smooths.",
+        "image": "https://example.com/images/shape-tape.jpg",
+        "price": 29.99,
+        "discount": 10.0,
+        "shopName": "Tarte Cosmetics",
+        "ratings": 4.92
+      },
+      {
+        "id": 10,
+        "name": "Charlotte Tilbury Airbrush Foundation",
+        "description": "A weightless, full-coverage foundation for a flawless look.",
+        "image": "https://example.com/images/charlotte-foundation.jpg",
+        "price": 44.99,
+        "discount": 12.5,
+        "shopName": "Charlotte Tilbury",
+        "ratings": 4.92
+      }
+    ],
+    "total": 10,
+    "skip": 0,
+    "limit": 10
+  }
+  

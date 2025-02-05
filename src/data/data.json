@@ -1,0 +1,105 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "title": "Casual Shirt",
+        "description": "Lightweight casual shirt for summer outings.",
+        "price": 499,
+        "image": "https://example.com/images/casual-shirt.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Denim Jeans",
+        "description": "Comfort-fit denim jeans suitable for all occasions.",
+        "price": 999,
+        "image": "https://example.com/images/denim-jeans.jpg"
+      },
+      {
+        "id": 3,
+        "title": "Leather Jacket",
+        "description": "Stylish leather jacket with a modern cut.",
+        "price": 2999,
+        "image": "https://example.com/images/leather-jacket.jpg"
+      },
+      {
+        "id": 4,
+        "title": "Sneakers",
+        "description": "Comfortable sneakers for everyday wear.",
+        "price": 1499,
+        "image": "https://example.com/images/sneakers.jpg"
+      },
+      {
+        "id": 5,
+        "title": "Sunglasses",
+        "description": "UV-protected sunglasses with a trendy design.",
+        "price": 799,
+        "image": "https://example.com/images/sunglasses.jpg"
+      },
+      {
+        "id": 6,
+        "title": "Wrist Watch",
+        "description": "Elegant wrist watch with a leather strap.",
+        "price": 1999,
+        "image": "https://example.com/images/wrist-watch.jpg"
+      },
+      {
+        "id": 7,
+        "title": "Handbag",
+        "description": "Spacious handbag perfect for daily use.",
+        "price": 2499,
+        "image": "https://example.com/images/handbag.jpg"
+      },
+      {
+        "id": 8,
+        "title": "Sports Shoes",
+        "description": "High-performance sports shoes for active lifestyles.",
+        "price": 1299,
+        "image": "https://example.com/images/sports-shoes.jpg"
+      },
+      {
+        "id": 9,
+        "title": "Formal Blazer",
+        "description": "Sleek formal blazer for professional settings.",
+        "price": 3499,
+        "image": "https://example.com/images/formal-blazer.jpg"
+      },
+      {
+        "id": 10,
+        "title": "Casual T-Shirt",
+        "description": "Soft and breathable t-shirt available in various colors.",
+        "price": 299,
+        "image": "https://example.com/images/casual-tshirt.jpg"
+      }
+    ],
+    "users": [
+      {
+        "id": 101,
+        "name": "Alice Johnson",
+        "role": "buyer",
+        "email": "alice@example.com",
+        "cart": [
+          { "productId": 2, "quantity": 1 },
+          { "productId": 10, "quantity": 2 }
+        ],
+        "wishlist": [3, 5]
+      },
+      {
+        "id": 102,
+        "name": "Bob Smith",
+        "role": "seller",
+        "email": "bob@example.com",
+        "cart": [],
+        "wishlist": []
+      },
+      {
+        "id": 103,
+        "name": "Carol Admin",
+        "role": "admin",
+        "email": "carol.admin@example.com",
+        "cart": [],
+        "wishlist": []
+      }
+    ]
+  }
+  
+  
