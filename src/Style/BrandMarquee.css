@@ -1,0 +1,44 @@
+   .marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background: #f8f9fa;
+    padding: 15px 0;
+    position: relative;
+    white-space: nowrap;
+  }
+  
+  .marquee {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  
+  .marquee-inner {
+    display: flex;
+    gap: 20px;
+    animation: scroll 10s linear infinite;
+    width: max-content;
+  }
+  
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .brand-logo {
+    height: 50px;
+    object-fit: contain;
+  }
+  
+  /* Infinite Scroll Animation */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  

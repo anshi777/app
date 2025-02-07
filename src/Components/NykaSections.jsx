@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import NykaProduct2 from "./NykaProduct2.png"; 
+import NykaProduct2 from "../assets/nykaProduct2.png"; 
 
 const sections = [
   { title: "The Gift Store", img: NykaProduct2 },

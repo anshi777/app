@@ -7,14 +7,20 @@ import NykaaSections from "./NykaSections";
 import FollowUs from "./FollowUS";
 import NykaFooter from "./NykaFooter";
 import NykaCard from "./NykaCard";
+import LuxuryBeauty from "./LuxuryBeauty";
+import BrandMarquee from "../Common/BranadMarquee";
+import ShowProduct from "./ShowProduct";
 
 const Home = () => {
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <NykaCarousel />
+      <BrandMarquee />
+      <ShowProduct/>
+      <LuxuryBeauty />
       <NykaCard />
-      <NykaCard />
+      {/* <NykaCard /> */}
       <BrandList />
       <NykaaSections />
       <NykaaSections />
