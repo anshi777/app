@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useDebugValue, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -7,7 +7,14 @@ import { Country, State, City } from "country-state-city";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import nykaFormLogo from "../assets/nykaa-removebg-preview.png";
+import { login, signup } from "../features/AuthSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import { Input } from "@headlessui/react";
+
 function SignupForm() {
+  const [name, setName] = useState(null);
+  const [number, setNumber] = useState(null);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedState, setSelectedState] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
@@ -15,7 +22,35 @@ function SignupForm() {
   const [password, setPassword] = useState("");
   const [address1, setAddress1] = useState("");
   const [address2, setAddress2] = useState("");
-  const [selectedCheckbox, setSelectedCheckbox] = useState("");
+  const [userType, setUserType] = useState();
+  const [isLogin, setIsLogin] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const userData = {
+      email,
+      password,
+      name,
+      number,
+      userType,
+      address1,
+      address2,
+      selectedCountry,
+      selectedState,
+      selectedCity,
+    };
+
+    if (isLogin) {
+      dispatch(login({ user: userData, userType }));
+      navigate("/");
+    } else {
+      dispatch(signup({ user: userData, userType }));
+      navigate("/");
+    }
+  };
 
   return (
     <div
@@ -47,7 +82,7 @@ function SignupForm() {
           overflowY: "auto",
         }}
       >
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <div
             style={{
               display: "flex",
@@ -71,8 +106,9 @@ function SignupForm() {
               <Form.Control
                 type="name"
                 placeholder="Enter name"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
               />
             </Form.Group>
 
@@ -81,8 +117,9 @@ function SignupForm() {
               <Form.Control
                 type="Number"
                 placeholder=" Enter Phone Number"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
+                required
               />
             </Form.Group>
           </Row>
@@ -95,6 +132,7 @@ function SignupForm() {
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </Form.Group>
 
@@ -105,6 +143,7 @@ function SignupForm() {
                 placeholder="Create Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </Form.Group>
           </Row>
@@ -115,6 +154,7 @@ function SignupForm() {
               placeholder="1234 Main St"
               value={address1}
               onChange={(e) => setAddress1(e.target.value)}
+              required
             />
           </Form.Group>
 
@@ -124,6 +164,7 @@ function SignupForm() {
               placeholder="Apartment, studio, or floor"
               value={address2}
               onChange={(e) => setAddress2(e.target.value)}
+              required
             />
           </Form.Group>
 
@@ -139,6 +180,7 @@ function SignupForm() {
                 setSelectedState(null);
                 setSelectedCity(null);
               }}
+              required
             >
               <option value="">Select Country</option>
               {Country.getAllCountries().map((country) => (
@@ -160,6 +202,7 @@ function SignupForm() {
                 setSelectedState(state);
                 setSelectedCity(null);
               }}
+              required
               disabled={!selectedCountry}
             >
               <option value="">Select State</option>
@@ -184,6 +227,7 @@ function SignupForm() {
                   selectedState?.isoCode || ""
                 ).find((c) => c.name === e.target.value);
                 setSelectedCity(city);
+                required;
               }}
               disabled={!selectedState}
             >
@@ -199,26 +243,35 @@ function SignupForm() {
                 ))}
             </Form.Select>
           </Form.Group>
-
-          <Form.Group className="mb-3">
-            <Form.Label>Select an UserType</Form.Label>
-            <Form.Check
-              type="checkbox"
-              label="Customer"
-              checked={selectedCheckbox === "option1"}
-              onChange={() => setSelectedCheckbox("option1")}
-            />
-            <Form.Check
-              type="checkbox"
-              label="Seller"
-              checked={selectedCheckbox === "option2"}
-              onChange={() => setSelectedCheckbox("option2")}
-            />
+          <div class="mb-3">
+            <label for="formFile" class="form-label">
+              Choose your profile{" "}
+            </label>
+            <Input class="form-control" type="file" id="formFile" />
+          </div>
+          <Form.Group controlId="userType" className="mb-3">
+            <Form.Label>Select User Type</Form.Label>
+            <Form.Select
+              value={userType || ""}
+              onChange={(e) => setUserType(e.target.value)}
+            >
+              <option value="customer">Customer</option>
+              <option value="seller">Seller</option>
+            </Form.Select>
           </Form.Group>
 
           <Button variant="dark" type="submit" className="w-100">
             Submit
           </Button>
+          <Button
+            onClick={() => setIsLogin(!isLogin)}
+            style={{
+              background: "none",
+              border: "none",
+              color: "blue",
+              cursor: "pointer",
+            }}
+          />
           <p>
             if you have already account please <a href="/login"> Login</a>
           </p>

@@ -1,33 +1,30 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCrad";
-import { Spinner } from "react-bootstrap";
+import { Container, Navbar, Spinner } from "react-bootstrap";
 import Cart from "./Cart";
-import { useUser } from "../UserContext/UserContext";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../features/ProductSlice";
 
 const NykaCard = () => {
-  const { product, fetchProducts } = useUser();
-  const [cart, setCart] = useState([]);
+  const dispatch = useDispatch();
 
-//   const addToCart = (product) => {
-//     setCart((prevCart) => {
-//       const existingItem = prevCart.find((item) => item.id === product.id);
-//       if (existingItem) {
-//         return prevCart.map((item) =>
-//           item.id === product.id
-//             ? { ...item, quantity: item.quantity + 1 }
-//             : item
-//         );
-//       }
-//       return [...prevCart, { ...product, quantity: 1 }];
-//     });
-//   };
-// console.log(addToCart)
+  const { products, loading, error } = useSelector((state) => state.product);
+    const [cart, setCart] = useState([]);
+
   useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+    dispatch(getProducts());
+  }, [dispatch]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <>
+    <Navbar bg="dark" variant="dark" className="w-100 mb-4">
+      <Container>
+        <Navbar.Brand></Navbar.Brand>
+      </Container>
+    </Navbar>
       <div
         className="d-flex justify-content-center"
         style={{
@@ -36,15 +33,17 @@ const NykaCard = () => {
           flexWrap: "wrap",
         }}
       >
-        {product.length > 0 ? (
-          product.map((product) => (
+        {products.length > 0 ? (
+          products.map((products) => (
             <ProductCard
-              key={product.id}
-              title={product.name}
-              description={product.brand}
-              image={product.image_link}
-              onAddToCart={() => alert(`${product.name} added to cart!`)}
-              onFavorite={() => alert(`${product.name} added to favorites!`)}
+              key={products.id}
+              title={products.name}
+              price={products.price } 
+              description={products.brand}
+              image={products.image_link}
+              price_sign={products.price_sign}
+              onAddToCart={() => alert(`${products.name} added to cart!`)}
+              onFavorite={() => alert(`${products.name} added to favorites!`)}
             />
           ))
         ) : (
@@ -55,7 +54,6 @@ const NykaCard = () => {
           </div>
         )}
       </div>
-      <Cart cart={cart} setCart={setCart} />
     </>
   );
 };
